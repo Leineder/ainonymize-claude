@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ainonymize": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/server/cli.mjs", "mcp"]
+    }
+  }
+}

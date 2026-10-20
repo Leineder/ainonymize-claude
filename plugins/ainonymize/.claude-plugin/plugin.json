@@ -1,0 +1,26 @@
+{
+  "name": "ainonymize",
+  "version": "1.0.0",
+  "description": "Keep personal data on your computer: Claude reads Word, Excel, PowerPoint, PDF, CSV and e-mail files only as consistent pseudonyms, prompts with personal data are stopped before they leave, and the real names are restored locally into the finished document. 100% local, GDPR-friendly, German + English.",
+  "author": {
+    "name": "Luis Eineder",
+    "url": "https://github.com/Leineder"
+  },
+  "homepage": "https://github.com/Leineder/ainonymize-claude",
+  "repository": "https://github.com/Leineder/ainonymize-claude",
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": [
+    "privacy",
+    "gdpr",
+    "dsgvo",
+    "pii",
+    "anonymization",
+    "pseudonymization",
+    "redaction",
+    "documents",
+    "legal",
+    "hr",
+    "compliance",
+    "local"
+  ]
+}

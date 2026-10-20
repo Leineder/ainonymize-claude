@@ -1,0 +1,14 @@
+{
+  "description": "Ainonymize guards: stop prompts with personal data, route documents through local anonymization, never read restored files.",
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [ { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/server/cli.mjs\" hook session", "timeout": 20 } ] }
+    ],
+    "UserPromptSubmit": [
+      { "hooks": [ { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/server/cli.mjs\" hook prompt", "timeout": 30 } ] }
+    ],
+    "PreToolUse": [
+      { "matcher": "Read", "hooks": [ { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/server/cli.mjs\" hook read", "timeout": 30 } ] }
+    ]
+  }
+}

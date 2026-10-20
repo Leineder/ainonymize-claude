@@ -1,0 +1,24 @@
+Ainonymize for Claude — Free Use Licence
+
+Copyright (c) 2026 Luis Eineder. All rights reserved.
+
+1. Grant. You may install and use this software (the "Software") free of charge, for private and
+   commercial purposes, on any number of your own devices and in your organisation.
+
+2. Distribution. You may share the Software only in unmodified form and only by pointing to, or
+   reproducing, an official release from https://github.com/Leineder/ainonymize-claude.
+
+3. Restrictions. You may not modify, decompile, reverse-engineer (except to the extent this
+   restriction is prohibited by applicable law), sell, sublicense or offer the Software, or any
+   part of it, as part of a competing product or service.
+
+4. Third-party components. Components bundled with the Software remain under their own licences,
+   listed in THIRD_PARTY_NOTICES.md. Nothing in this licence limits your rights under them.
+
+5. No warranty. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+   INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+   AND NONINFRINGEMENT. Automatic detection of personal data can miss values or mark too many; you
+   remain responsible for reviewing what you share with an AI provider. IN NO EVENT SHALL THE
+   COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM, OUT OF OR IN
+   CONNECTION WITH THE SOFTWARE OR ITS USE, except where liability cannot be excluded by law
+   (intent, gross negligence, injury to life, body or health).
