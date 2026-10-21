@@ -22,3 +22,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: node scripts/smoke.mjs
+      - name: Neural runtime installs the way Claude Code installs it (lockfile, no scripts)
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          node --input-type=module -e "const o = await import('onnxruntime-web'); if (!o.InferenceSession) throw new Error('ort'); console.log('onnxruntime-web ok')"

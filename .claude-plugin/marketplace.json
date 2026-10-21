@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Ainonymize — use Claude on documents with personal data without that data leaving your computer.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "ainonymize",
-      "source": "./plugins/ainonymize",
+      "source": "./",
       "description": "Local pseudonymization for Claude Code & Cowork: Claude reads Word/Excel/PowerPoint/PDF/CSV/e-mail files only as consistent pseudonyms, prompts with personal data are stopped before they leave, and real names are restored locally into the finished document.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "Luis Eineder"
       },

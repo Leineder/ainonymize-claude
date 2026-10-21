@@ -57,7 +57,8 @@ chatgpt.com. See [ainonymize.vercel.app](https://ainonymize.vercel.app).
 
 ```bash
 git clone https://github.com/Leineder/ainonymize-claude
-node ainonymize-claude/plugins/ainonymize/server/cli.mjs mcp
+cd ainonymize-claude && npm ci --ignore-scripts   # optional: the neural runtime
+node server/cli.mjs mcp
 ```
 
 ## Use it
@@ -129,6 +130,20 @@ directly.
 - **Not yet supported:** scanned PDFs/images (OCR), legacy `.doc/.xls/.ppt`, archives. The Chrome
   extension handles more formats.
 
+## What the plugin runs, reads, writes and fetches
+
+Everything below happens on your computer; nothing is sent to any server.
+
+| | |
+|---|---|
+| **Runs** | One local Node.js process, `server/cli.mjs` (readable source, bundled from the Ainonymize engine): as the MCP server, and briefly for each hook. |
+| **Installs** | On plugin install, Claude Code installs the npm package `onnxruntime-web@1.19.2` from the npm registry. It is pinned in `package-lock.json` and runs no install scripts. It runs the detection model as WebAssembly, with no native code. |
+| **Fetches (once)** | The detection model `onnx-community/gliner_multi_pii-v1` (~600 MB) from `huggingface.co`, at a pinned revision, SHA-256-verified, kept in `~/.ainonymize/models`. An existing Hugging Face cache of the same revision is reused. Your documents are never part of any request. Set `"neural": false` to skip the model entirely. |
+| **Reads** | Only files you, or Claude on your behalf, pass to `anonymize_file` / `restore_file`. Hooks: the prompt you submit, and the first 400 KB of a CSV/text file Claude tries to `Read`, to decide whether it contains personal data. |
+| **Writes** | `name.anonymized.ext` / `name.restored.ext` next to your files (or where you choose), and mapping records in `~/.ainonymize/vault/` (mode 0600). When the prompt guard stops a prompt, it puts the pseudonymized version on your clipboard (`pbcopy` / PowerShell `Set-Clipboard` / `wl-copy`/`xclip`). |
+| **Opens** | A restored file in your default app, only when you ask (`open: true`). |
+| **Never** | It doesn't touch the network otherwise, collect telemetry, change Claude's settings or permissions, or read credentials. |
+
 ## Privacy
 
 Ainonymize collects nothing. The only network request it ever makes is the one-time model download
@@ -137,7 +152,7 @@ from huggingface.co (pinned revision, SHA-256 verified). See [PRIVACY.md](PRIVAC
 ## License
 
 Free to use, privately and commercially. See [LICENSE](LICENSE). Bundled open-source components:
-[THIRD_PARTY_NOTICES.md](plugins/ainonymize/THIRD_PARTY_NOTICES.md).
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ---
 

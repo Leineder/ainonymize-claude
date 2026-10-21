@@ -6,7 +6,7 @@ import os from "node:os";
 import path from "node:path";
 import assert from "node:assert/strict";
 
-const cli = path.resolve("plugins/ainonymize/server/cli.mjs");
+const cli = path.resolve("server/cli.mjs");
 const work = fs.mkdtempSync(path.join(os.tmpdir(), "ain-smoke-"));
 const env = { ...process.env, AINONYMIZE_HOME: path.join(work, "home"), AINONYMIZE_NEURAL: "0" };
 const csv = path.join(work, "customers.csv");
